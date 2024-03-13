@@ -1,5 +1,7 @@
 package dev.mandevilla.Services;
 
+import java.util.List;
+
 import dev.mandevilla.Models.NoModel;
 
 public class ArvoreBinariaService {
@@ -9,6 +11,10 @@ public class ArvoreBinariaService {
         raiz = null;
     }
 
+    public NoModel obterRaiz() {
+        return raiz;
+    }
+
     public void inserir(int valorRaiz) {
         if (raiz == null) {
             raiz = new NoModel(valorRaiz);
@@ -16,6 +22,32 @@ public class ArvoreBinariaService {
         else {
             inserir(valorRaiz, raiz);
         }        
+    }
+
+    public List<Integer> obterEmOrdem(NoModel no, List<Integer> lista) {
+        if (no != null) {
+            lista = obterEmOrdem(no.getEsquerdo(), lista);
+            lista.add(no.getValor());
+            lista = obterEmOrdem(no.getDireito(), lista);
+        }
+
+        return lista;
+    }
+
+    public List<Integer> obterPreOrdem(NoModel no, List<Integer> lista) {
+        if (no != null) {
+            lista.add(no.getValor());
+            lista = obterPreOrdem(no.getEsquerdo(), lista);
+            lista = obterPreOrdem(no.getDireito(), lista);
+        }
+
+        return lista;
+    }
+
+    public void inserir(List<Integer> valores) {
+        for (Integer valor : valores) {
+            inserir(valor);
+        }
     }
 
     public NoModel buscar(int valor) {
@@ -95,7 +127,7 @@ public class ArvoreBinariaService {
                 remover(noSubstituo.getValor(), noAtual.getDireito());
             }
         }
-        else if (valor < noAtual.getValor()) {
+        else if (valor <= noAtual.getValor()) {
             if (noAtual.getEsquerdo() != null) {
                 remover(valor, noAtual.getEsquerdo());
             }
