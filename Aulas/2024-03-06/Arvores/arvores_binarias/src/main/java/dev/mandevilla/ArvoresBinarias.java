@@ -13,11 +13,24 @@ public class ArvoresBinarias {
         var arvoreBinaria = new ArvoreBinariaService();
 
         arvoreBinaria.inserir(lista);
+        arvoreBinaria.inserir(10);
+
+        List<Integer> listaPreOrdem = new ArrayList<Integer>();
+        listaPreOrdem = arvoreBinaria.obterPreOrdem(arvoreBinaria.obterRaiz(), listaPreOrdem);
+        
+        System.out.println("\nLista normal: " + lista);
+        System.out.println("Lista Pré-Ordem: " + listaPreOrdem);
 
         List<Integer> listaEmOrdem = new ArrayList<Integer>();
-        listaEmOrdem = arvoreBinaria.obterPreOrdem(arvoreBinaria.obterRaiz(), listaEmOrdem);
+        listaEmOrdem = arvoreBinaria.obterEmOrdem(arvoreBinaria.obterRaiz(), listaEmOrdem);
+        
+        System.out.println("\nLista normal: " + lista);
+        System.out.println("Lista Em-Ordem: " + listaEmOrdem);
 
-        System.out.println("Lista normal: " + lista);
-        System.out.println("Lista Pré-Ordem: " + listaEmOrdem);
+        List<Integer> listaPosOrdem = new ArrayList<Integer>();
+        listaPosOrdem = arvoreBinaria.obterPosOrdem(arvoreBinaria.obterRaiz(), listaPosOrdem);
+        
+        System.out.println("\nLista normal: " + lista);
+        System.out.println("Lista Pós-Ordem: " + listaPosOrdem);
     }
 }

@@ -24,6 +24,16 @@ public class ArvoreBinariaService {
         }        
     }
 
+    public List<Integer> obterPreOrdem(NoModel no, List<Integer> lista) {
+        if (no != null) {
+            lista.add(no.getValor());
+            lista = obterPreOrdem(no.getEsquerdo(), lista);
+            lista = obterPreOrdem(no.getDireito(), lista);
+        }
+
+        return lista;
+    }
+
     public List<Integer> obterEmOrdem(NoModel no, List<Integer> lista) {
         if (no != null) {
             lista = obterEmOrdem(no.getEsquerdo(), lista);
@@ -34,11 +44,11 @@ public class ArvoreBinariaService {
         return lista;
     }
 
-    public List<Integer> obterPreOrdem(NoModel no, List<Integer> lista) {
+    public List<Integer> obterPosOrdem(NoModel no, List<Integer> lista) {
         if (no != null) {
+            lista = obterPosOrdem(no.getEsquerdo(), lista);
+            lista = obterPosOrdem(no.getDireito(), lista);
             lista.add(no.getValor());
-            lista = obterPreOrdem(no.getEsquerdo(), lista);
-            lista = obterPreOrdem(no.getDireito(), lista);
         }
 
         return lista;
