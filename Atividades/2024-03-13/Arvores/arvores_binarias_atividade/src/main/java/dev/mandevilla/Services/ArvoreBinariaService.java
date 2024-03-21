@@ -5,7 +5,7 @@ import java.util.List;
 import dev.mandevilla.Models.NoModel;
 
 public class ArvoreBinariaService {
-    private NoModel raiz;
+    protected NoModel raiz;
 
     public ArvoreBinariaService() {
         raiz = null;
@@ -67,35 +67,9 @@ public class ArvoreBinariaService {
         return buscar(valor, raiz);
     }
 
-    // a. Crie um método que apresente a altura de uma árvore binária;
-    public int obterAltura(NoModel no) {
-        if (no == null) {
-            return 0;
-        }
-
-        var alturaEsquerda = obterAltura(no.getEsquerdo());
-        var alturaDireita = obterAltura(no.getDireito());
-
-        if (alturaEsquerda > alturaDireita) {
-            return alturaEsquerda + 1;
-        }
-        else {
-            return alturaDireita + 1;
-        }
+    public boolean isFolha(NoModel no) {
+        return no.getEsquerdo() == null && no.getDireito() == null;
     }
-
-    // d. Crie um método que apresente os nós internos de uma árvore binária;
-    // Nós internos são aqueles que são diferentes do nó raiz e dos nós folhas
-    public List<Integer> obterNosInternos(NoModel no, List<Integer> lista) {
-        if (no != null) {
-            lista = obterEmOrdem(no.getEsquerdo(), lista);
-            lista.add(no.getValor());
-            lista = obterEmOrdem(no.getDireito(), lista);
-        }
-
-        return lista;
-    }
-
 
     // Métodos privados
 
