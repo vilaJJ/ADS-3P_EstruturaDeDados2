@@ -42,20 +42,6 @@ public class ArvoreBinariaExercicio extends ArvoreBinariaService {
         32
     );
 
-    final private static List<Integer> listaValidar = Arrays.asList(
-        70,
-        25,
-        90,
-        12,
-        40,
-        82,
-        101,
-        31,
-        42,
-        8,
-        92
-    );
-
     // a. Crie um método que apresente a altura de uma árvore binária;
     public int obterAltura(NoModel no) {
         if (no == null) {
@@ -74,13 +60,16 @@ public class ArvoreBinariaExercicio extends ArvoreBinariaService {
     }
 
     // b. Crie um método que apresente a altura de determinado nó de uma árvore binária;
-    public int obterAlturaPeloNo(int valorNo) {
-        var no = buscar(valorNo);
-
-        if (no == null && isFolha(no)) {
+    public int obterAlturaPeloNo(NoModel no) {
+        if (no == null || isFolha(no)) {
             return 0;
         }
-        // TODO: Implementar restante
+
+        var alturaEsquerda = obterAlturaPeloNo(no.getEsquerdo());
+        var alturaDireita = obterAlturaPeloNo(no.getDireito()) + 1;
+
+        var maiorValor = Calculos.obterMaximo(alturaEsquerda, alturaDireita);
+        return maiorValor;
     }
 
     // c. Crie um método que apresente os nós folha de uma árvore binária;
@@ -146,11 +135,17 @@ public class ArvoreBinariaExercicio extends ArvoreBinariaService {
     public static void executar() {
         var arvoreBinaria = new ArvoreBinariaExercicio();
 
-        arvoreBinaria.inserir(listaValidar);
+        arvoreBinaria.inserir(lista);
 
         // a. Crie um método que apresente a altura de uma árvore binária;
         var alturaArvore = arvoreBinaria.obterAltura(arvoreBinaria.obterRaiz());
         System.out.println("\na. A altura da árvore binária é: " + alturaArvore);
+        
+        // b. Crie um método que apresente a altura de determinado nó de uma árvore binária;
+        var valorProcurarAltura = 17;
+        var no = arvoreBinaria.buscar(valorProcurarAltura);
+        var alturaNo = arvoreBinaria.obterAlturaPeloNo(no);
+        System.out.println("\nb. A altura do nó '" + valorProcurarAltura + "' é: " + alturaNo);
 
         // c. Crie um método que apresente os nós folha de uma árvore binária;
         List<Integer> nosFolhas = new ArrayList<>();
