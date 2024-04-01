@@ -1,11 +1,13 @@
-import 'package:arvores_binarias_simulado/src/shared/services/arvore_binaria/arvore_binaria_service.dart';
+import 'package:arvores_binarias_simulado/src/features/simulado/arvore_binaria_simulado.dart';
 
 void main() {
-  var arvoreBinaria = ArvoreBinariaService();
+  var arvoreBinaria = ArvoreBinariaSimulado();
+  arvoreBinaria.inserirLista([90, 30, 11, 78, 91, 2, 15, 103]);
 
-  arvoreBinaria.inserirLista([70, 25, 90, 12, 40, 82, 101, 31, 42, 8, 92]);
+  print(arvoreBinaria.obterPreOrdem(no: arvoreBinaria.noRaiz, retorno: []));
+  print(arvoreBinaria.obterEmOrdem(no: arvoreBinaria.noRaiz, retorno: []));
+  print(arvoreBinaria.obterPosOrdem(no: arvoreBinaria.noRaiz, retorno: []));
 
-  print(arvoreBinaria.obterPreOrdem(no: arvoreBinaria.obterRaiz(), retorno: []));
-  print(arvoreBinaria.obterEmOrdem(no: arvoreBinaria.obterRaiz(), retorno: []));
-  print(arvoreBinaria.obterPosOrdem(no: arvoreBinaria.obterRaiz(), retorno: []));
+  print(arvoreBinaria.obterQuantidadeNo());
+  print(arvoreBinaria.obterMenorNo().valor);
 }

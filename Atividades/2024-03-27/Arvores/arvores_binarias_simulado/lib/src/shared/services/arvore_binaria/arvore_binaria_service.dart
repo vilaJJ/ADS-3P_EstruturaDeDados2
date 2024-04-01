@@ -3,23 +3,10 @@ import 'package:arvores_binarias_simulado/src/shared/models/no/no_model.dart';
 /// Classe de serviço, para operações com Árvores binárias.
 class ArvoreBinariaService {
   /// Nó raiz da Árvore binária.
-  late NoModel? _noRaiz;
-
-  /// Construtor da classe.
-  ///
-  /// Classe de serviço, para operações com Árvores binárias.
-  ArvoreBinariaService({
-    int? numeroRaiz,
-  }) {
-    if (numeroRaiz is int) {
-      _noRaiz = NoModel(valor: numeroRaiz);
-    } else {
-      _noRaiz = null;
-    }
-  }
+  NoModel? _noRaiz;
 
   /// Retorna o nó raiz da Árvore binária.
-  NoModel obterRaiz() {
+  NoModel get noRaiz {
     if (_noRaiz is NoModel) {
       return _noRaiz!;
     }
