@@ -10,4 +10,6 @@ void main() {
 
   print(arvoreBinaria.obterQuantidadeNo());
   print(arvoreBinaria.obterMenorNo().valor);
+  print(arvoreBinaria.obterPredecessorSucessor(91));
+  print(arvoreBinaria.isArvoreBinariaBusca(arvoreBinaria.noRaiz));
 }
