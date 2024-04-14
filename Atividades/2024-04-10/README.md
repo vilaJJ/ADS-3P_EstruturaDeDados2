@@ -4,4 +4,8 @@ Nesta aula, foi apresentada o desenvolvimento de um aplicativo para fins avaliat
 
 O aplicativo se trata de um dicionário de palavras, que deverá ser construído baseado em uma árvore binária de busca.
 
+Comandos para submódulos:
+
+- ```git submodule update --remote --merge```
+
 10 de março de 2024 (2024-03-13).
