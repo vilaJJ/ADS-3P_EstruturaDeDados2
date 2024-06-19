@@ -1,3 +1,18 @@
+/*
+Instituto Federal do Tocantins - IFTO Campus Araguaína
+19 de junho de 2024 (2024-06-19), quarta-feira
+Curso: Análise e Desenvolvimento de Sistemas (CST)
+Estudantes: 
+    - Beatriz Coelho dos Santos, 
+    - Juan Felipe Alves Flores, 
+    - Luan da Silva Carvalho, 
+    - Samylla Marinho da Silva Aguiar, 
+    - Sara Ghabrielly Oliveira Silva.
+Professor: Walisson Pereira de Sousa                  
+Disciplina: Estrutura de Dados II
+Período: 3°
+*/
+
 public class GrafosApp {
     public static void main(String[] args) {
         Grafo grafo = new Grafo();

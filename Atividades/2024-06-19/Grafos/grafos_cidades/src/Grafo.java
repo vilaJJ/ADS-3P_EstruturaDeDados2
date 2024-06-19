@@ -1,3 +1,18 @@
+/*
+Instituto Federal do Tocantins - IFTO Campus Araguaína
+19 de junho de 2024 (2024-06-19), quarta-feira
+Curso: Análise e Desenvolvimento de Sistemas (CST)
+Estudantes: 
+    - Beatriz Coelho dos Santos, 
+    - Juan Felipe Alves Flores, 
+    - Luan da Silva Carvalho, 
+    - Samylla Marinho da Silva Aguiar, 
+    - Sara Ghabrielly Oliveira Silva.
+Professor: Walisson Pereira de Sousa                  
+Disciplina: Estrutura de Dados II
+Período: 3°
+*/
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -115,10 +130,10 @@ public class Grafo {
         Stack<String> pilha = new Stack<String>();
 
         pilha.push(cidadeRaiz);
-        
+
         while (!pilha.isEmpty()) {
             String vertice = pilha.pop();
-            
+
             if (!visitados.contains(vertice)) {
                 visitados.add(vertice);
 
@@ -139,7 +154,7 @@ public class Grafo {
 
         while (!fila.isEmpty()) {
             String vertice = fila.poll();
-            
+
             for (Vertice v : grafo.obterVerticeAdjascente(vertice)) {
                 if (!visitados.contains(v.nomeCidade)) {
                     visitados.add(v.nomeCidade);
